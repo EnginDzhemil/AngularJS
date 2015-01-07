@@ -1,0 +1,21 @@
+/* navbar */
+.navbar-default {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.navbar-default .navbar-text {
+    color: #fff;
+}
+
+.btn-login-register{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ad-title-{
+    float: left;
+}
+.ad-date-{
+    float: right;
+}
