@@ -1,49 +1,27 @@
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">iPhone 4S for Sale <span class="pull-right">3-Jan-2015</span>
+    <div ng-repeat="ad in ads.ads" class="panel panel-primary">
+        <div class="panel-heading">{{ad.title}} <span class="pull-right">{{ad.date | date:'dd-MMM-yyyy'}}</span>
         </div>
         <div class="panel-body">
-            <div class="media">
-                <a class="media-left" href="#">
-                    <img src="img/phone.png" alt="...">
-                </a>
-                <div class="media-body">
 
+            <div class="row">
+                <div ng-if="ad.imageDataUrl" class="col-md-4">
+                    <img src="{{ad.imageDataUrl}}"  alt="{{ad.title}}" width="170px;">
+                </div>
+                <div class="col-md-8">
                     <ul class="list-group">
-                        <li class="list-group-item">I have iPhone 4S 16GB for sale. Good
-                            price. Like a new. Please call me in the
-                            evenings or at weekends.
+                        <li class="list-group-item">
+                            <p class="permalink_section">{{ad.text}}</p>
                         </li>
-                        <li class="list-group-item"><span class="label label-primary">Name</span> Victor</li>
-                        <li class="list-group-item"><span class="label label-primary">Email</span> Igra4a@abv.bg</li>
-                        <li class="list-group-item"><span class="label label-primary">Tel.</span> +359 888 77 55 44</li>
+                        <li class="list-group-item"><span class="label label-primary">Name</span> {{ad.ownerName}}</li>
+                        <li class="list-group-item"><span class="label label-primary">Email</span> {{ad.ownerEmail}}</li>
+                        <li class="list-group-item"><span class="label label-primary">Tel.</span> {{ad.ownerPhone}}</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">Job as Housekeeper<span class="pull-right">28-Dec-2014</span>
-        </div>
-        <div class="panel-body">
-            <div class="media">
-                <a class="media-left" href="#">
-                    <img src="img/no-image.png" alt="...">
-                </a>
-                <div class="media-body">
-
-                    <ul class="list-group">
-                        <li class="list-group-item">I am looking for a job as housekeeper.
-                        </li>
-                        <li class="list-group-item"><span class="label label-primary">Name</span> Milka Peneva</li>
-                        <li class="list-group-item"><span class="label label-primary">Email</span> milka@yahoo.com</li>
-                        <li class="list-group-item"><span class="label label-primary">Tel.</span> +359 898 887 977</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <nav class="col-md-12 text-center">
         <ul class="pagination">
