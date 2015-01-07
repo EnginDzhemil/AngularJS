@@ -8,7 +8,7 @@
                 <div ng-if="ad.imageDataUrl" class="col-md-4">
                     <img src="{{ad.imageDataUrl}}"  alt="{{ad.title}}" width="170px;">
                 </div>
-                <div class="col-md-8">
+                <div ng-class="{true: 'col-md-8', false: 'col-md-12'}[ad.imageDataUrl != null]">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <p class="permalink_section">{{ad.text}}</p>
