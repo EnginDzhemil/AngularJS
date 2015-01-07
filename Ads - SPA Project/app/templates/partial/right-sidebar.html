@@ -1,18 +1,48 @@
 <div class="panel panel-primary">
     <div class="panel-heading">Categories</div>
-    <ul class="list-group">
-        <li class="list-group-item"><a><button class="btn btn-primary btn-sidebar"> All</button></a></li>
-        <li class="list-group-item"><a><a><button class="btn btn-default btn-sidebar"> Cars</button></a></li>
-        <li class="list-group-item"><a><a><button class="btn btn-default btn-sidebar"> Properties</button></a></li>
+    <ul class="list-group sidebar-menu">
+        <li class="list-group-item">
+            <a>
+                <button class="btn btn-sidebar btn-default"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedCategoryId == null]"
+                        ng-click="categoryClicked(null)">
+                        All
+                </button>
+            </a>
+        </li>
+        <li ng-repeat="category in categories" class="list-group-item">
+            <a>
+            <button class="btn btn-default btn-sidebar"
+                    ng-click="categoryClicked(category.id)"
+                    ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedCategoryId == category.id]">
+                    {{category.name}}
+            </button>
+            </a>
+        </li>
     </ul>
 </div>
 
 <div class="panel panel-primary">
     <div class="panel-heading">Towns</div>
     <ul class="list-group">
-        <li class="list-group-item"><a><a><button class="btn btn-primary btn-sidebar"> All</button></a></li>
-        <li class="list-group-item"><a><a><button class="btn btn-default btn-sidebar"> Plovdiv</button></a></li>
-        <li class="list-group-item"><a><a><button class="btn btn-default btn-sidebar"> Burgas</button></a></li>
+        <li class="list-group-item">
+            <a>
+                <button class="btn btn-sidebar btn-default"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedTownId == null]"
+                        ng-click="townClicked(null)">
+                    All
+                </button>
+            </a>
+        </li>
+        <li ng-repeat="town in towns" class="list-group-item">
+            <a>
+                <button class="btn btn-default btn-sidebar"
+                        ng-click="townClicked(town.id)"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedTownId == town.id]">
+                    {{town.name}}
+                </button>
+            </a>
+        </li>
     </ul>
 </div>
 </div>
