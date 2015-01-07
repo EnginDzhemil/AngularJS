@@ -5,7 +5,7 @@
     </ul>
 </div>
 
-<div class="panel panel-primary">
+<div ng-if="authService.isAnonymous()" class="panel panel-primary">
     <div class="panel-body">
         <p> To publish a new
             ad, please login.</p>

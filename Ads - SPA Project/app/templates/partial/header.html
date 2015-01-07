@@ -1,5 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="center-block" style="width: 200px;"><h2 class="navbar-text">Ads - Home</h2></div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Ads <span ng-if="pageTitle"> &ndash; {{pageTitle}}</a>
+        </div>
+        <ul ng-if="authService.isLoggedIn()"  class="nav navbar-nav navbar-right">
+            <p class="navbar-text">Welcome, {{authService.getCurrentUser().username}}</p>
+            <li><a href="#" ng-click="logout()">Logout</a></li>
+        </ul>
     </div>
 </div>
+
