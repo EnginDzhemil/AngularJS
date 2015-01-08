@@ -1,6 +1,8 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">Categories</div>
-    <ul class="list-group sidebar-menu">
+    <div class="panel-heading" data-toggle="collapse" href="#collapseCategories">
+        Categories <span class="caret"></span>
+    </div>
+    <ul id="collapseCategories" class="list-group sidebar-menu panel-collapse collapse">
         <li class="list-group-item">
             <a>
                 <button class="btn btn-sidebar btn-default"
@@ -19,12 +21,21 @@
             </button>
             </a>
         </li>
+        <div data-toggle="collapse" href="#collapseCategories" class="panel-footer">
+            close
+            <span class="dropup">
+                <span class="caret"></span>
+            </span>
+        </div>
     </ul>
+
 </div>
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Towns</div>
-    <ul class="list-group">
+    <div class="panel-heading" data-toggle="collapse" href="#collapseTowns">
+        Towns <span class="caret"></span>
+    </div>
+    <ul id="collapseTowns" class="list-group sidebar-menu panel-collapse collapse">
         <li class="list-group-item">
             <a>
                 <button class="btn btn-sidebar btn-default"
@@ -43,6 +54,12 @@
                 </button>
             </a>
         </li>
+        <div data-toggle="collapse" href="#collapseTowns" class="panel-footer">
+            close
+            <span class="dropup">
+                <span class="caret"></span>
+            </span>
+        </div>
     </ul>
 </div>
 </div>

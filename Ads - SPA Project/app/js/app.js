@@ -5,6 +5,15 @@ var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap.paginati
 app.constant('baseServiceUrl', 'http://localhost:1337');
 app.constant('pageSize', 5);
 
+app.run(function ($rootScope, $location, authService) {
+    $rootScope.$on('$locationChangeStart', function (event) {
+        if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
+            // Authorization check: anonymous site visitors cannot access user routes
+            $location.path("/");
+        }
+    });
+});
+
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
@@ -28,7 +37,7 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/user/ads', {
-        templateUrl: 'templates/user/ads.html',
+        templateUrl: 'templates/user/user-ads-home.html',
         controller: 'UserAdsController'
     });
 
@@ -37,13 +46,3 @@ app.config(function ($routeProvider) {
     );
 
 });
-
-app.run(function ($rootScope, $location, authService) {
-    $rootScope.$on('$locationChangeStart', function (event) {
-        if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
-            // Authorization check: anonymous site visitors cannot access user routes
-            $location.path("/");
-        }
-    });
-});
-
