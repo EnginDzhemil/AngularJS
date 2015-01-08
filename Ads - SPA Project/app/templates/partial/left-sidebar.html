@@ -4,7 +4,7 @@
         <li class="list-group-item">
             <a href="#/">
             <button ng-click="navigationClicked('home')"
-                    ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'home']">
+                    ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'home' || location.path() == '/']">
                 Home
             </button>
             </a>
@@ -12,7 +12,7 @@
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
             <a href="#/user/ads">
                 <button ng-click="navigationClicked('myAds')"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'myAds']">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'myAds' || location.path() == '/user/ads']">
                     My Ads
                 </button>
             </a>
@@ -20,7 +20,7 @@
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
             <a href="#/user/ads/publish">
                 <button ng-click="navigationClicked('publishNewAd')"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'publishNewAd']">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'publishNewAd' || location.path() == '/user/publish']">
                     Publish new ad
                 </button>
             </a>
@@ -28,7 +28,7 @@
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
             <a href="#/user/edit">
                 <button ng-click="navigationClicked('editUserProfile')"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile']">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile' || location.path() == '/user/edit']">
                     Edit profile</button>
             </a>
         </li>
@@ -85,7 +85,14 @@
     <div class="panel-body">
         <p> To publish a new
             ad, please login.</p>
-        <a href="#/login">  <button type="button" class="btn btn-default btn-login-register">Login</button></a>
-        <a href="#/register"> <button type="button" class="btn btn-default btn-login-register">Register</button></a>
+        <a href="#/login">
+            <button ng-class="{true: 'btn btn-login-register btn-primary', false: 'btn btn-login-register btn-default'}[location.path() == '/login']">
+                Login
+            </button>
+        </a>
+        <a href="#/register"><button ng-class="{true: 'btn btn-login-register btn-primary', false: 'btn btn-login-register btn-default'}[location.path() == '/register']">
+            Register
+        </button>
+        </a>
     </div>
 </div>
