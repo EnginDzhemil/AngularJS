@@ -3,29 +3,79 @@
     <ul class="list-group">
         <li class="list-group-item">
             <a href="#/">
-            <button class="btn btn-primary btn-sidebar">
+            <button ng-click="navigationClicked('home')"
+                    ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'home']">
                 Home
             </button>
             </a>
         </li>
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
             <a href="#/user/ads">
-                <button class="btn btn-primary btn-sidebar">
+                <button ng-click="navigationClicked('myAds')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'myAds']">
                     My Ads
                 </button>
             </a>
         </li>
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
             <a href="#/user/ads/publish">
-                <button class="btn btn-primary btn-sidebar">
+                <button ng-click="navigationClicked('publishNewAd')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'publishNewAd']">
                     Publish new ad
                 </button>
             </a>
         </li>
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
             <a href="#/user/edit">
-                <button class="btn btn-primary btn-sidebar">
+                <button ng-click="navigationClicked('editUserProfile')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile']">
                     Edit profile</button>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div ng-if="location.path() == '/user/ads'" class="panel panel-primary">
+    <div class="panel-heading">My Ads</div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a>
+                <button ng-click="myAdsNavigationClicked(null)"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == null]">
+                    All
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a>
+                <button ng-click="myAdsNavigationClicked(0)"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 0]">
+                    Published
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a>
+                <button ng-click="myAdsNavigationClicked(1)"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 1]">
+                    Waiting Approval
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a>
+                <button ng-click="myAdsNavigationClicked(2)"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 2]">
+                    Inactive
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a>
+                <button ng-click="myAdsNavigationClicked(3)"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 3]">
+                    Rejected
+                </button>
             </a>
         </li>
     </ul>
