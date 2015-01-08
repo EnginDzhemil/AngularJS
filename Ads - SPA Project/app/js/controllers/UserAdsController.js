@@ -25,6 +25,19 @@ app.controller('UserAdsController',
             );
         };
 
+        $scope.deactivateUserAd = function(id) {
+            userService.deactivateAd(
+                id,
+                function success() {
+                    notifyService.showInfo("Ad successfully deactivated")
+                    $scope.reloadUserAds();
+                },
+                function error(err) {
+                    notifyService.showError("Ad couldn't deactivate", err);
+                }
+            );
+        };
+
         $scope.reloadUserAds();
     }
 );

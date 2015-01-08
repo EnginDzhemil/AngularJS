@@ -19,7 +19,7 @@
 
                 </ul>
                 <button disabled class="btn btn-primary pull-left">{{ad.status}}</button>
-                <button class="btn btn-danger pull-right">Deactivate</button>
+                <button ng-click="deactivateUserAd(ad.id)" ng-if="ad.status != 'Inactive'" class="btn btn-danger pull-right">Deactivate</button>
             </div>
         </div>
     </div>
