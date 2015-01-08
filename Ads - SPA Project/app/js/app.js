@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when('/register', {
         templateUrl: 'templates/register.html',
-        controller: 'LoginController'
+        controller: 'RegisterController'
     });
 
     $routeProvider.when('/user/ads/publish', {
@@ -27,6 +27,10 @@ app.config(function ($routeProvider) {
         controller: 'UserPublishNewAdController'
     });
 
+    $routeProvider.when('/user/ads', {
+        templateUrl: 'templates/user/ads.html',
+        controller: 'UserAdsController'
+    });
 
     $routeProvider.otherwise(
         { redirectTo: '/' }
