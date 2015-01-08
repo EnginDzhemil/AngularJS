@@ -1,0 +1,26 @@
+<div class="panel panel-primary" ng-controller="UserPublishNewAdController">
+    <div class="panel-heading">Publish new ad</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input class="form-control" type="text" id="title" ng-model="adData.title" placeholder="Enter title" required />
+            </div>
+            <div class="form-group">
+                <label for="text">Text</label>
+                <input class="form-control" id="text" ng-model="adData.text" placeholder="Enter text" required />
+            </div>
+            <div class="form-group">
+                <label for="inputCategory">Category</label>
+                <select class="form-control" id="inputCategory" ng-model="adData.categoryId">
+                    <option value="null">(None)</option>
+                    <option ng-repeat="category in categories"
+                            value="{{category.id}}">{{category.name}}</option>
+                </select>
+            </div>
+
+            <button ng-click="publishAd(adData)" class="btn btn-primary">Publish</button>
+            <a href="#/user/ads" class="button"><button class="btn btn-default">Cancel</button></a>
+        </form>
+    </div>
+</div>

@@ -2,6 +2,9 @@
     <div class="panel-heading">Navigation</div>
     <ul class="list-group">
         <li class="list-group-item"><a href="#/"><button class="btn btn-primary btn-sidebar"> Home</button></a></li>
+        <li ng-if="authService.isLoggedIn()" class="list-group-item"><a href="#/user/ads"><button class="btn btn-primary btn-sidebar"> My Ads</button></a></li>
+        <li ng-if="authService.isLoggedIn()" class="list-group-item"><a href="#/user/ads/publish"><button class="btn btn-primary btn-sidebar"> Publish new ad</button></a></li>
+        <li ng-if="authService.isLoggedIn()" class="list-group-item"><a href="#/user/edit"><button class="btn btn-primary btn-sidebar"> Edit profile</button></a></li>
     </ul>
 </div>
 
