@@ -1,14 +1,14 @@
-<div class="panel panel-primary" ng-controller="UserPublishNewAdController">
-    <div class="panel-heading">Publish new ad</div>
+<div class="panel panel-primary" ng-controller="UserEditAdController">
+    <div class="panel-heading">Edit ad</div>
     <div class="panel-body">
         <form>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" type="text" id="title" ng-model="adData.title" placeholder="Enter title" required />
+                <input class="form-control" type="text" id="title" ng-model="adData.title" value="{{ads.title}}" placeholder="{{ads.title}}" />
             </div>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" ng-model="adData.text" placeholder="Enter text" required rows="3"></textarea>
+                <textarea class="form-control" id="text" ng-model="adData.text" value="{{ads.text}}" placeholder="{{ads.text}}" rows="3"></textarea>
             </div>
 
             <div class="form-group">
@@ -16,28 +16,26 @@
                 <input class="form-control" type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)"  />
             </div>
             <div class="form-group image-box">
-
+                <img src="{{ads.imageDataUrl}}" width="170px;">
             </div>
             <div class="form-group">
                 <label for="inputCategory">Category</label>
                 <select class="form-control" id="inputCategory" ng-model="adData.categoryId">
-                    <option value="null">(None)</option>
-                    <option ng-repeat="category in categories"
+                    <option ng-repeat="category in categories" ng-selected="category.id == ads.categoryId"
                             value="{{category.id}}">{{category.name}}</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="inputTown">Town</label>
+                <label for="inputCategory">Town</label>
                 <select class="form-control" id="inputTown" ng-model="adData.townId">
-                    <option value="null">(None)</option>
-                    <option ng-repeat="town in towns"
+                    <option ng-repeat="town in towns" ng-selected="town.id == ads.townId"
                             value="{{town.id}}">{{town.name}}</option>
                 </select>
             </div>
 
-            <button ng-click="publishAd(adData)" class="btn btn-primary">Publish</button>
-            <a href="#/user/ads"><button class="btn btn-default">Cancel</button></a>
+            <button ng-click="editUserAd(ads.id, adData)" class="btn btn-primary">Edit</button>
+            <a href="#/user/ads" class="button"><button class="btn btn-default">Cancel</button></a>
         </form>
     </div>
 </div>
