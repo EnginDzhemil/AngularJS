@@ -38,6 +38,32 @@ app.controller('UserAdsController',
             );
         };
 
+        $scope.publishAgainUserAd = function(id) {
+            userService.publishAgainAd(
+                id,
+                function success() {
+                    notifyService.showInfo("Ad successfully submitted for approval")
+                    $scope.reloadUserAds();
+                },
+                function error(err) {
+                    notifyService.showError("Ad couldn't be submitted for approval", err);
+                }
+            );
+        };
+
+        $scope.deleteUserAd = function(id) {
+            userService.deleteAd(
+                id,
+                function success() {
+                    notifyService.showInfo("Ad successfully deleted")
+                    $scope.reloadUserAds();
+                },
+                function error(err) {
+                    notifyService.showError("Ad couldn't be deleted", err);
+                }
+            );
+        };
+
         $scope.reloadUserAds();
     }
 );

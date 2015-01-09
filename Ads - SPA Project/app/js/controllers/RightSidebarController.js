@@ -6,13 +6,6 @@ app.controller('RightSidebarController',
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
 
-        $scope.categoryClicked = function(clickedCategoryId) {
-            $scope.selectedCategoryId = clickedCategoryId;
-        };
-
-        $scope.townClicked = function(clickedTownId) {
-            $scope.selectedTownId = clickedTownId;
-        };
 
         $scope.categoryClicked = function(clickedCategoryId) {
             $scope.selectedCategoryId = clickedCategoryId;

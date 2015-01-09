@@ -23,6 +23,15 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
+            getUserAdsById: function (id, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/user/ads/'+id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
             deactivateAd: function (id, success, error) {
                 var request = {
                     method: 'PUT',
@@ -33,7 +42,21 @@ app.factory('userService',
             },
 
             publishAgainAd: function (id, success, error) {
-                // TODO
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/ads/PublishAgain/'+id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            deleteAd: function (id, success, error) {
+                var request = {
+                    method: 'DELETE',
+                    url: baseServiceUrl + '/api/user/ads/'+id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
             }
         }
     }

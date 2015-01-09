@@ -41,15 +41,15 @@
         <li class="list-group-item">
             <a>
                 <button ng-click="myAdsNavigationClicked(null)"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == null]">
-                    All
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[clickedMyAdsNavigationId == null]">
+                    All {{selectedMyAdsNavigationId}}
                 </button>
             </a>
         </li>
         <li class="list-group-item">
             <a>
                 <button ng-click="myAdsNavigationClicked(2)"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 2]">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[clickedMyAdsNavigationId == 2]">
                     Published
                 </button>
             </a>
@@ -57,7 +57,7 @@
         <li class="list-group-item">
             <a>
                 <button ng-click="myAdsNavigationClicked(1)"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 1]">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[clickedMyAdsNavigationId == 1]">
                     Waiting Approval
                 </button>
             </a>
@@ -65,7 +65,7 @@
         <li class="list-group-item">
             <a>
                 <button ng-click="myAdsNavigationClicked(0)"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 0]">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[clickedMyAdsNavigationId == 0]">
                     Inactive
                 </button>
             </a>
@@ -73,7 +73,7 @@
         <li class="list-group-item">
             <a>
                 <button ng-click="myAdsNavigationClicked(3)"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedMyAdsNavigationId == 3]">
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[clickedMyAdsNavigationId == 3]">
                     Rejected
                 </button>
             </a>

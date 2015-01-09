@@ -14,7 +14,7 @@ app.controller('UserPublishNewAdController',
                 var reader = new FileReader();
                 reader.onload = function() {
                     $scope.adData.imageDataUrl = reader.result;
-                    $(".image-box").html("<img data-ng-src='" + reader.result + "' width='170px;'>");
+                    $(".image-box").html("<img src='" + reader.result + "' width='170px;'>");
                 };
                 reader.readAsDataURL(file);
             } else {
@@ -33,5 +33,6 @@ app.controller('UserPublishNewAdController',
                 }
             );
         };
+
     }
 );

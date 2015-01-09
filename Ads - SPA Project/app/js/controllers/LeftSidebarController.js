@@ -10,10 +10,6 @@ app.controller('LeftSidebarController',
         };
 
         $scope.myAdsNavigationClicked = function(clickedMyAdsNavigationId) {
-            $scope.selectedMyAdsNavigationId = clickedMyAdsNavigationId;
-        };
-
-        $scope.myAdsNavigationClicked = function(clickedMyAdsNavigationId) {
             $scope.clickedMyAdsNavigationId = clickedMyAdsNavigationId;
             $rootScope.$broadcast("myAdsNavigationSelectionChanged", clickedMyAdsNavigationId);
         };
