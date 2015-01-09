@@ -1,0 +1,24 @@
+<div class="panel panel-primary" ng-controller="UserDeleteAdController">
+    <div class="panel-heading">{{ads.title}} <span class="pull-right">{{ads.date | date:'dd-MMM-yyyy'}}</span>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div ng-if="ads.imageDataUrl" class="col-md-4">
+                <img data-ng-src="{{ads.imageDataUrl}}"  alt="{{ads.title}}" width="170px;">
+            </div>
+            <div ng-class="{true: 'col-md-8', false: 'col-md-12'}[ads.imageDataUrl != null]">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p class="permalink_section">{{ads.text}}</p>
+                    </li>
+                    <li class="list-group-item"><span class="label label-primary">Category</span> {{ads.categoryName}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Town</span> {{ads.townName}}</li>
+
+                </ul>
+                <button ng-click="deleteAd(ads.id)" class="btn btn-danger">Delete</button>
+                <button ng-click="" class="btn btn-danger pull-right">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

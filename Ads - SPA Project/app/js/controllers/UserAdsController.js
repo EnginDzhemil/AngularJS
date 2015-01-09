@@ -51,19 +51,6 @@ app.controller('UserAdsController',
             );
         };
 
-        $scope.deleteUserAd = function(id) {
-            userService.deleteAd(
-                id,
-                function success() {
-                    notifyService.showInfo("Ad successfully deleted")
-                    $scope.reloadUserAds();
-                },
-                function error(err) {
-                    notifyService.showError("Ad couldn't be deleted", err);
-                }
-            );
-        };
-
         $scope.reloadUserAds();
     }
 );
