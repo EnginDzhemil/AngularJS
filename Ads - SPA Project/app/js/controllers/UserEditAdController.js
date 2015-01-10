@@ -3,20 +3,23 @@
 app.controller('UserEditAdController',
     function ($scope, $location, townsService, categoriesService,
               userService, notifyService, $routeParams) {
-        $scope.adData = {townId: null, categoryId: null};
+        $scope.adData = {townId: null, categoryId: null, imageDataUrl: "dfgh"};
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
-        $scope.adData.changeImage = false;
+        $scope.selectedImageChangeState = false;
+        $scope.selectedImageDeleteState = false;
+
         $scope.reloadUserAd = function() {
             userService.getUserAdById(
                 $routeParams.id,
                 function success(data) {
                     $scope.ads = data;
-                    $scope.adData.title = data.title;
-                    $scope.adData.text = data.text;
-                    $scope.adData.categoryId = data.categoryId;
-                    $scope.adData.townId = data.townId;
-                    $scope.adData.imageDataUrl = data.imageDataUrl;
+                    $scope.adData.title = $scope.ads.title;
+                    $scope.adData.text = $scope.ads.text;
+                    $scope.adData.categoryId = $scope.ads.categoryId;
+                    $scope.adData.townId = $scope.ads.townId;
+                    $scope.adData.imageDataUrl = $scope.ads.imageDataUrl;
+                    $scope.adData.changeImage = false;
                 },
                 function error(err) {
                     notifyService.showError("Ad couldn't load", err);
@@ -25,7 +28,6 @@ app.controller('UserEditAdController',
         };
 
         $scope.fileSelected = function(fileInputField) {
-            delete $scope.adData.imageDataUrl;
             var file = fileInputField.files[0];
             if (file.type.match(/image\/.*/)) {
                 var reader = new FileReader();
@@ -38,6 +40,7 @@ app.controller('UserEditAdController',
                 $(".image-box").html("<p>File type not supported!</p>");
             }
         };
+
         $scope.changeImage = function() {
             if($scope.selectedImageChangeState == true){
                 $scope.adData.changeImage = false;
@@ -47,7 +50,6 @@ app.controller('UserEditAdController',
                 $scope.adData.changeImage = true;
                 $scope.selectedImageChangeState = true;
             }
-
         };
 
         $scope.deleteImage = function() {

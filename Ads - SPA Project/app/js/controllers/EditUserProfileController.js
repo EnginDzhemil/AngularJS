@@ -12,7 +12,7 @@ app.controller('EditUserProfileController',
                     $scope.userData.name = data.name;
                     $scope.userData.email = data.email;
                     $scope.userData.phoneNumber = data.phoneNumber;
-
+                    $scope.userData.townId = data.townId;
                 },
                 function error(err) {
                     notifyService.showError("Profile couldn't load", err);
@@ -25,10 +25,23 @@ app.controller('EditUserProfileController',
             userService.editUserProfile( userData,
                 function success() {
                     notifyService.showInfo("User updated")
-                    $location.path("/user/profile")
+                    $location.path("/user/profile");
                 },
                 function error(err) {
                     notifyService.showError("User update failed", err)
+                }
+            );
+        };
+
+        $scope.changeUserPassword = function(passwordData) {
+
+            userService.changeUserPassword( passwordData,
+                function success() {
+                    notifyService.showInfo("Password changed")
+                    $location.path("/user/profile");
+                },
+                function error(err) {
+                    notifyService.showError("Password change failed", err)
                 }
             );
         };

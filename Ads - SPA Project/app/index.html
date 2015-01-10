@@ -25,7 +25,7 @@
             <div ng-include="'templates/partial/left-sidebar.html'"></div>
         </div>
 
-        <div ng-class="{true: 'col-md-6 col-md-offset-1', false: 'col-md-6'}[showRightSidebar]" ng-view>
+        <div ng-class="{true: 'col-md-8', false: 'col-md-6'}[showRightSidebar]" ng-view>
         </div>
 
         <div class="col-md-3"  ng-controller="RightSidebarController" ng-hide="showRightSidebar">

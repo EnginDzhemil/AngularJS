@@ -1,32 +1,58 @@
-<div class="panel panel-primary" ng-controller="EditUserProfileController">
-    <div class="panel-heading">Edit profile</div>
-    <div class="panel-body">
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input class="form-control" type="text" id="name" ng-model="userData.name" placeholder="{{user.name}}" />
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-control" type="email" id="email" ng-model="userData.email" placeholder="{{user.email}}" />
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input class="form-control" type="phone" id="phone" ng-model="userData.phoneNumber" placeholder="{{user.phoneNumber}}" />
-            </div>
-            <div class="form-group">
-                <label for="inputTown">Town</label>
-                <select class="form-control" id="inputTown" ng-model="userData.townId">
-                    <option value="null">(None)</option>
-                    <option ng-repeat="town in towns"
-                            value="{{town.id}}">{{town.name}}</option>
-                </select>
-            </div>
-            <p>{{userData.townId}}</p>
-            <button ng-click="editUserProfile(userData)" class="btn btn-primary">Update</button>
-            <a href="#/" class="btn btn-default">Cancel</a>
-        </form>
+<div class=" col-md-7">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Edit profile</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" id="name" ng-model="userData.name" placeholder="{{user.name}}" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" id="email" ng-model="userData.email" placeholder="{{user.email}}" />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input class="form-control" type="phone" id="phone" ng-model="userData.phoneNumber" placeholder="{{user.phoneNumber}}" />
+                </div>
+                <div class="form-group">
+                    <label for="inputTown">Town</label>
+                    <select class="form-control" id="inputTown" ng-model="userData.townId">
+                        <option ng-repeat="town in towns"  ng-selected="town.id == user.townId"
+                                value="{{town.id}}">{{town.name}}</option>
+                    </select>
+                </div>
+                <button ng-click="editUserProfile(userData)" class="btn btn-primary">Update</button>
+                <a href="#/" class="btn btn-default">Cancel</a>
+            </form>
 
 
+        </div>
+    </div>
+</div>
+
+<div class=" col-md-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Change Password</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="oldPassword">Old password</label>
+                    <input class="form-control" type="password" id="oldPassword" ng-model="passwordData.oldPassword"  />
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New password</label>
+                    <input class="form-control" type="password" id="newPassword" ng-model="passwordData.newPassword"  />
+                </div>
+                <div class="form-group">
+                    <label for="confirmNewPassword">Confirm new password</label>
+                    <input class="form-control" type="password" id="confirmNewPassword" ng-model="passwordData.confirmPassword"  />
+                </div>
+                <button ng-click="changeUserPassword(passwordData)" class="btn btn-primary">Change</button>
+                <a href="#/" class="btn btn-default">Cancel</a>
+            </form>
+
+
+        </div>
     </div>
 </div>
