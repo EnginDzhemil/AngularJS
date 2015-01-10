@@ -82,25 +82,25 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="#/user/ads">
-                <button ng-click="navigationClicked('myAds')"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'myAds' || location.path() == '/user/ads']">
+            <a href="#/admin/users/list">
+                <button ng-click="navigationClicked('listUsers')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'listUsers' || location.path() == '/admin/users/list']">
                     Users
                 </button>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="#/user/ads/publish">
-                <button ng-click="navigationClicked('publishNewAd')"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'publishNewAd' || location.path() == '/user/publish']">
+            <a href="#/admin/categories/list">
+                <button ng-click="navigationClicked('categoriesList')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'categoriesList' || location.path() == '/admin/categories/list']">
                     Categories
                 </button>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="#/user/profile">
-                <button ng-click="navigationClicked('editUserProfile')"
-                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile' || location.path() == '/user/edit']">
+            <a href="#/admin/towns/list">
+                <button ng-click="navigationClicked('listTowns')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'listTowns' || location.path() == '/admin/towns/list']">
                     Towns
                 </button>
             </a>

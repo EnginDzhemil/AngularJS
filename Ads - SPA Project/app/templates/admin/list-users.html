@@ -1,0 +1,35 @@
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        </div>
+        <table class="table">
+            <thead>
+            <tr class="info">
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users.users" ng-class-even="'info'">
+                <th>{{user.username}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phoneNumber}}</td>
+                <td><button ng-click="" class="btn btn-primary">Edit</button>
+                   <button ng-click="deleteAdminUser(user)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+<nav class="col-md-12 text-center">
+    <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+                items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                max-size="9" boundary-links="true">
+    </pagination>
+</nav>

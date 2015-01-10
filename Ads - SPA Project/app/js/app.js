@@ -11,6 +11,7 @@ app.run(function ($rootScope, $location, authService) {
             || $location.path() == "/user/ads"
             || $location.path() == "/user/ads/publish"
             || $location.path() == "/user/profile"
+            || $location.path() == "/admin/users/list"
             || $location.path().indexOf("/user/ads/edit/") !=-1
             || $location.path().indexOf("/user/ads/delete/") !=-1
             || $location.path().indexOf("/admin/ads/edit/") !=-1
@@ -87,6 +88,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/admin/ads/edit/:id', {
         templateUrl: 'templates/admin/edit-ad.html',
         controller: 'AdminEditAdController'
+    });
+
+    $routeProvider.when('/admin/users/list', {
+        templateUrl: 'templates/admin/list-users.html',
+        controller: 'AdminListUsersController'
     });
 
     $routeProvider.otherwise(
