@@ -23,11 +23,23 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
-            getUserById: function (id, success, error) {
+            editUserProfile: function (username, userData, success, error) {
+                delete userData.username;
                 var request = {
-                    method: 'GET',
-                    url: baseServiceUrl + '/api/admin/users/'+id,
-                    headers: authService.getAuthHeaders()
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/user/'+username,
+                    headers: authService.getAuthHeaders(),
+                    data: userData
+                };
+                $http(request).success(success).error(error);
+            },
+
+            setUserPassword: function (userData, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/setpassword',
+                    headers: authService.getAuthHeaders(),
+                    data: userData
                 };
                 $http(request).success(success).error(error);
             },
