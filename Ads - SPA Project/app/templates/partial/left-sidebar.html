@@ -29,7 +29,7 @@
                 </button>
             </a>
         </li>
-        <li ng-if="authService.isLoggedIn()" class="list-group-item">
+        <li ng-if="authService.isNormalUser()" class="list-group-item">
             <a href="#/user/home">
                 <button ng-click="navigationClicked('userHome')"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'userHome' || location.path() == '/user/home']">
@@ -37,7 +37,7 @@
                 </button>
             </a>
         </li>
-        <li ng-if="authService.isLoggedIn()" class="list-group-item">
+        <li ng-if="authService.isNormalUser()" class="list-group-item">
             <a href="#/user/ads">
                 <button ng-click="navigationClicked('myAds')"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'myAds' || location.path() == '/user/ads']">
@@ -45,7 +45,7 @@
                 </button>
             </a>
         </li>
-        <li ng-if="authService.isLoggedIn()" class="list-group-item">
+        <li ng-if="authService.isNormalUser()" class="list-group-item">
             <a href="#/user/ads/publish">
                 <button ng-click="navigationClicked('publishNewAd')"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'publishNewAd' || location.path() == '/user/publish']">
@@ -53,7 +53,7 @@
                 </button>
             </a>
         </li>
-        <li ng-if="authService.isLoggedIn()" class="list-group-item">
+        <li ng-if="authService.isNormalUser()" class="list-group-item">
             <a href="#/user/profile">
                 <button ng-click="navigationClicked('editUserProfile')"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile' || location.path() == '/user/edit']">
