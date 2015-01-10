@@ -7,7 +7,7 @@ app.controller('UserAdsController',
             'pageSize' : pageSize
         };
         $rootScope.headerMsg = 'My Ads';
-        
+
         $scope.$on("myAdsNavigationSelectionChanged", function(event, selectedMyAdsNavigationId) {
             $scope.userAdsParams.status = selectedMyAdsNavigationId;
             $scope.userAdsParams.startPage = 1;

@@ -77,6 +77,11 @@ app.config(function ($routeProvider) {
         controller: 'AdminHomeController'
     });
 
+    $routeProvider.when('/admin/ads/delete/:id', {
+        templateUrl: 'templates/admin/delete-ad.html',
+        controller: 'AdminDeleteAdController'
+    });
+
     $routeProvider.otherwise(
         { redirectTo: '/' }
     );

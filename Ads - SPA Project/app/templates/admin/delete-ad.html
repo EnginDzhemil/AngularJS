@@ -1,0 +1,28 @@
+<div class="panel panel-primary" ng-controller="AdminDeleteAdController">
+    <div class="panel-heading">{{ads.title}} <span class="pull-right">{{ads.date | date:'dd-MMM-yyyy'}}</span>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div ng-if="ads.imageDataUrl" class="col-md-4">
+                <img data-ng-src="{{ads.imageDataUrl}}"  alt="{{ads.title}}" width="170px;">
+            </div>
+            <div ng-class="{true: 'col-md-8', false: 'col-md-12'}[ads.imageDataUrl != null]">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p class="permalink_section">{{ads.text}}</p>
+                    </li>
+                    <li class="list-group-item"><span class="label label-primary">Username</span> {{ads.ownerUsername}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Name</span> {{ads.ownerName}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Email</span> {{ads.ownerEmail}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Tel.</span> {{ads.ownerPhone}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Category</span> {{ads.categoryName}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Town</span> {{ads.townName}}</li>
+                    <li class="list-group-item"><span class="label label-primary">Status</span> {{ads.status}}</li>
+                </ul>
+                <button ng-click="deleteAd(ads.id)" class="btn btn-danger">Delete</button>
+                <a href="#/admin/ads"><button ng-click="" class="btn btn-default">Cancel</button></a>
+            </div>
+        </div>
+    </div>
+</div>
