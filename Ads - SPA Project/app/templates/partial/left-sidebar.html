@@ -1,12 +1,40 @@
 <div class="panel panel-primary">
     <div class="panel-heading">Navigation</div>
     <ul class="list-group">
-        <li class="list-group-item">
+        <li  ng-if="authService.isAnonymous()"  class="list-group-item">
             <a href="#/">
             <button ng-click="navigationClicked('home')"
                     ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'home' || location.path() == '/']">
                 Home
             </button>
+            </a>
+        </li>
+        <li  ng-if="authService.isAnonymous()"  class="list-group-item">
+            <p>To publish a new
+                ad, please login.</p>
+        </li>
+        <li  ng-if="authService.isAnonymous()"  class="list-group-item">
+            <a href="#/login">
+                <button ng-click="navigationClicked('login')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'login' || location.path() == '/login']">
+                    Login
+                </button>
+            </a>
+        </li>
+        <li  ng-if="authService.isAnonymous()"  class="list-group-item">
+            <a href="#/register">
+                <button ng-click="navigationClicked('register')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'register' || location.path() == '/register']">
+                    Register
+                </button>
+            </a>
+        </li>
+        <li ng-if="authService.isLoggedIn()" class="list-group-item">
+            <a href="#/user/home">
+                <button ng-click="navigationClicked('userHome')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'userHome' || location.path() == '/user/home']">
+                    Home
+                </button>
             </a>
         </li>
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
@@ -79,20 +107,4 @@
             </a>
         </li>
     </ul>
-</div>
-
-<div ng-if="authService.isAnonymous()" class="panel panel-primary">
-    <div class="panel-body">
-        <p> To publish a new
-            ad, please login.</p>
-        <a href="#/login">
-            <button ng-class="{true: 'btn btn-login-register btn-primary', false: 'btn btn-login-register btn-default'}[location.path() == '/login']">
-                Login
-            </button>
-        </a>
-        <a href="#/register"><button ng-class="{true: 'btn btn-login-register btn-primary', false: 'btn btn-login-register btn-default'}[location.path() == '/register']">
-            Register
-        </button>
-        </a>
-    </div>
 </div>

@@ -2,13 +2,13 @@
 
 app.controller('UserEditAdController',
     function ($scope, $location, townsService, categoriesService,
-              userService, notifyService, $routeParams) {
+              userService, notifyService, $routeParams, $rootScope) {
         $scope.adData = {townId: null, categoryId: null, imageDataUrl: "dfgh"};
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
         $scope.selectedImageChangeState = false;
         $scope.selectedImageDeleteState = false;
-
+        $rootScope.headerMsg = "Edit ad";
         $scope.reloadUserAd = function() {
             userService.getUserAdById(
                 $routeParams.id,

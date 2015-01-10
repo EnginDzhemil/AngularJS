@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('UserDeleteAdController',
-    function ($scope, userService, notifyService, $routeParams, $location) {
-
+    function ($scope, userService, notifyService, $routeParams, $location, $rootScope) {
+        $rootScope.headerMsg = "Delete ad";
         $scope.reloadUserAd = function() {
             userService.getUserAdById(
                 $routeParams.id,

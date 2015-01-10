@@ -1,12 +1,11 @@
 'use strict';
 
-app.controller('HomeController',
+app.controller('UserHomeController',
     function ($scope, adsService, notifyService, pageSize, $rootScope) {
         $scope.adsParams = {
             'startPage' : 1,
             'pageSize' : pageSize
         };
-
         $rootScope.headerMsg = 'Home';
 
         $scope.$on("categorySelectionChanged", function(event, selectedCategoryId) {

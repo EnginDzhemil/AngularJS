@@ -1,9 +1,11 @@
 'use strict';
 
 app.controller('RegisterController',
-    function ($scope, $location, townsService, authService, notifyService) {
+    function ($scope, $location, townsService, authService, notifyService, $rootScope) {
         $scope.userData = {townId: null};
         $scope.towns = townsService.getTowns();
+
+        $rootScope.headerMsg = 'Register';
 
         $scope.register = function(userData) {
             authService.register(userData,

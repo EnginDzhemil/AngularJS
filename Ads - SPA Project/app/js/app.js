@@ -7,10 +7,16 @@ app.constant('pageSize', 10);
 
 app.run(function ($rootScope, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
-        if($location.path() == "/login" || $location.path() == "/register" || $location.path().indexOf("ads/edit") ){
-            $rootScope.showRightSidebar = true;
-        }else{
+        if($location.path() == "/login" || $location.path() == "/register"
+            || $location.path() == "/user/ads"
+            || $location.path() == "/user/ads/publish"
+            || $location.path() == "/user/profile"
+            || $location.path().indexOf("/user/ads/edit/") !=-1
+            || $location.path().indexOf("/user/ads/delete/") !=-1){
             $rootScope.showRightSidebar = false;
+        }
+        else{
+            $rootScope.showRightSidebar = true;
         }
         if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
             // Authorization check: anonymous site visitors cannot access user routes
@@ -24,6 +30,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
+    });
+
+    $routeProvider.when('/user/home', {
+        templateUrl: 'templates/user/home.html',
+        controller: 'UserHomeController'
     });
 
     $routeProvider.when('/login', {

@@ -25,10 +25,10 @@
             <div ng-include="'templates/partial/left-sidebar.html'"></div>
         </div>
 
-        <div ng-class="{true: 'col-md-8', false: 'col-md-6'}[showRightSidebar]" ng-view>
+        <div ng-class="{true: 'col-md-8', false: 'col-md-6'}[!showRightSidebar]" ng-view>
         </div>
 
-        <div class="col-md-3"  ng-controller="RightSidebarController" ng-hide="showRightSidebar">
+        <div class="col-md-3"  ng-controller="RightSidebarController">
             <div ng-include="'templates/partial/right-sidebar.html'"></div>
         </div>
     </div>
@@ -62,6 +62,7 @@
 
 <script src="js/controllers/AppController.js"></script>
 <script src="js/controllers/HomeController.js"></script>
+<script src="js/controllers/UserHomeController.js"></script>
 <script src="js/controllers/LeftSidebarController.js"></script>
 <script src="js/controllers/LoginController.js"></script>
 <script src="js/controllers/RegisterController.js"></script>

@@ -2,9 +2,11 @@
 
 app.controller('EditUserProfileController',
     function ($scope, $location, townsService,
-              userService, notifyService) {
+              userService, notifyService, $rootScope) {
         $scope.towns = townsService.getTowns();
         $scope.userData = {};
+
+        $rootScope.headerMsg = 'Edit User Profile'
         $scope.reloadUserProfile = function() {
             userService.getUserProfile(
                 function success(data) {

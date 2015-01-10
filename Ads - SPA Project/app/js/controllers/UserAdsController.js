@@ -1,17 +1,12 @@
 'use strict';
 
 app.controller('UserAdsController',
-    function ($scope, userService, notifyService, pageSize) {
+    function ($scope, userService, notifyService, pageSize, $rootScope) {
         $scope.userAdsParams = {
             'startPage' : 1,
             'pageSize' : pageSize
         };
-
-        $scope.$on("myAdsNavigationSelectionChanged", function(event, selectedMyAdsNavigationId) {
-            $scope.userAdsParams.status = selectedMyAdsNavigationId;
-            $scope.userAdsParams.startPage = 1;
-            $scope.reloadUserAds();
-        });
+        $rootScope.headerMsg = 'My Ads';
 
         $scope.reloadUserAds = function() {
             userService.getUserAds(
