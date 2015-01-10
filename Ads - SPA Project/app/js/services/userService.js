@@ -42,6 +42,25 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
+            getUserProfile: function (success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/user/profile',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            editUserProfile: function (userData, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/profile',
+                    headers: authService.getAuthHeaders(),
+                    data: userData
+                };
+                $http(request).success(success).error(error);
+            },
+
             deactivateAd: function (id, success, error) {
                 var request = {
                     method: 'PUT',

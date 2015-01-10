@@ -1,34 +1,32 @@
-<div class="panel panel-primary" ng-controller="UserPublishNewAdController">
-    <div class="panel-heading">Publish new ad</div>
+<div class="panel panel-primary" ng-controller="EditUserProfileController">
+    <div class="panel-heading">Edit profile</div>
     <div class="panel-body">
         <form>
             <div class="form-group">
-                <label for="title">Title</label>
-                <input class="form-control" type="text" id="title" ng-model="adData.title" placeholder="Enter title" required />
+                <label for="name">Name</label>
+                <input class="form-control" type="text" id="name" ng-model="userData.name" placeholder="{{user.name}}" />
             </div>
             <div class="form-group">
-                <label for="text">Text</label>
-                <input class="form-control" id="text" ng-model="adData.text" placeholder="Enter text" required />
-            </div>
-
-            <div class="form-group">
-                <label for="image">Image:</label>
-                <input class="form-control" type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)"  />
-            </div>
-            <div class="form-group image-box">
-
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="email" ng-model="userData.email" placeholder="{{user.email}}" />
             </div>
             <div class="form-group">
-                <label for="inputCategory">Category</label>
-                <select class="form-control" id="inputCategory" ng-model="adData.categoryId">
+                <label for="phone">Phone</label>
+                <input class="form-control" type="phone" id="phone" ng-model="userData.phoneNumber" placeholder="{{user.phoneNumber}}" />
+            </div>
+            <div class="form-group">
+                <label for="inputTown">Town</label>
+                <select class="form-control" id="inputTown" ng-model="userData.townId">
                     <option value="null">(None)</option>
-                    <option ng-repeat="category in categories"
-                            value="{{category.id}}">{{category.name}}</option>
+                    <option ng-repeat="town in towns"
+                            value="{{town.id}}">{{town.name}}</option>
                 </select>
             </div>
-
-            <button ng-click="publishAd(adData)" class="btn btn-primary">Publish</button>
-            <a href="#/user/ads" class="button"><button class="btn btn-default">Cancel</button></a>
+            <p>{{userData.townId}}</p>
+            <button ng-click="editUserProfile(userData)" class="btn btn-primary">Update</button>
+            <a href="#/" class="btn btn-default">Cancel</a>
         </form>
+
+
     </div>
 </div>

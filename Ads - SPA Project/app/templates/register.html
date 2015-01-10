@@ -1,5 +1,5 @@
 <div class="panel panel-primary" ng-controller="RegisterController">
-    <div class="panel-heading">Login</div>
+    <div class="panel-heading">Register</div>
     <div class="panel-body">
         <form>
             <div class="form-group">
@@ -34,8 +34,10 @@
                             value="{{town.id}}">{{town.name}}</option>
                 </select>
             </div>
-
             <button ng-click="register(userData)" class="btn btn-primary">Register</button>
+            <a href="#/" class="btn btn-default">Cancel</a>
         </form>
+
+
     </div>
 </div>

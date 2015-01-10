@@ -4,17 +4,20 @@
         <form>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" type="text" id="title" ng-model="adData.title" value="{{ads.title}}" placeholder="{{ads.title}}" />
+                <input class="form-control" type="text" id="title" ng-model="adData.title" placeholder="{{ads.title}}" />
             </div>
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" ng-model="adData.text" value="{{ads.text}}" placeholder="{{ads.text}}" rows="3"></textarea>
+                <textarea class="form-control" id="text" ng-model="adData.text"  placeholder="{{ads.text}}" rows="3"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="image">Image:</label>
                 <input class="form-control" type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)"  />
+
             </div>
+            <button ng-click="changeImage()" ng-class="{true: 'btn btn-danger', false: 'btn btn-primary'}[selectedImageChangeState == true]">Change image</button>
+            <button ng-click="deleteImage()" ng-class="{true: 'btn btn-danger', false: 'btn btn-primary'}[selectedImageDeleteState == true]">Delete image</button>
             <div class="form-group image-box">
                 <img src="{{ads.imageDataUrl}}" width="170px;">
             </div>

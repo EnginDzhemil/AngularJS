@@ -26,7 +26,7 @@
             </a>
         </li>
         <li ng-if="authService.isLoggedIn()" class="list-group-item">
-            <a href="#/user/edit">
+            <a href="#/user/profile">
                 <button ng-click="navigationClicked('editUserProfile')"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile' || location.path() == '/user/edit']">
                     Edit profile</button>
@@ -42,7 +42,7 @@
             <a>
                 <button ng-click="myAdsNavigationClicked(null)"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[clickedMyAdsNavigationId == null]">
-                    All {{selectedMyAdsNavigationId}}
+                    All
                 </button>
             </a>
         </li>

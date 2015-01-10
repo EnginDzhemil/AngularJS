@@ -3,10 +3,15 @@
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap.pagination', 'angular-loading-bar']);
 
 app.constant('baseServiceUrl', 'http://localhost:1337');
-app.constant('pageSize', 5);
+app.constant('pageSize', 10);
 
 app.run(function ($rootScope, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
+        if($location.path() == "/login" || $location.path() == "/register" || $location.path().indexOf("ads/edit") ){
+            $rootScope.showRightSidebar = true;
+        }else{
+            $rootScope.showRightSidebar = false;
+        }
         if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
             // Authorization check: anonymous site visitors cannot access user routes
             $location.path("/");
@@ -49,6 +54,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/user/ads/edit/:id', {
         templateUrl: 'templates/user/edit-ad.html',
         controller: 'UserEditAdController'
+    });
+
+    $routeProvider.when('/user/profile', {
+        templateUrl: 'templates/user/edit-user.html',
+        controller: 'EditUserProfileController'
     });
 
     $routeProvider.otherwise(
