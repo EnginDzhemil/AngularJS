@@ -17,6 +17,9 @@ app.controller('AdminEditAdController',
                     $scope.ads = data;
                     $scope.adData.title = $scope.ads.title;
                     $scope.adData.text = $scope.ads.text;
+                    $scope.adData.status = $scope.ads.status;
+                    $scope.adData.date = $scope.ads.date;
+                    $scope.adData.ownerUsername = $scope.ads.ownerUsername;
                     $scope.adData.categoryId = $scope.ads.categoryId;
                     $scope.adData.townId = $scope.ads.townId;
                     $scope.adData.imageDataUrl = $scope.ads.imageDataUrl;
@@ -66,19 +69,53 @@ app.controller('AdminEditAdController',
         };
 
 
-        $scope.editUserAd = function(id, adData) {
-            userService.editAd(id, adData,
+        $scope.editAdminAd = function(id, adData) {
+            adminService.editAd(id, adData,
                 function success() {
                     notifyService.showInfo("Ad edited")
-                    $location.path("/user/ads");
+                    $location.path("/admin/home");
                 },
                 function error(err) {
                     notifyService.showError("Ad edit failed", err)
                 }
             );
         };
-
         $scope.reloadAd();
+        //date
+        $scope.today = function() {
+            $scope.dt = new Date();
+        };
+
+        $scope.clear = function () {
+            $scope.dt = null;
+        };
+
+        // Disable weekend selection
+        $scope.disabled = function(date, mode) {
+            return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+        };
+
+        $scope.toggleMin = function() {
+            $scope.minDate = $scope.minDate ? null : new Date();
+        };
+        $scope.toggleMin();
+
+        $scope.open = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.opened = true;
+        };
+
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
+
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
+
+
     }
 );
 

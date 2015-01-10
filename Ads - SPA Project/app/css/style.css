@@ -58,3 +58,12 @@ fieldset[disabled] .btn-custom.active {
     background-color: #337ab7;
     border-color: #337ab7;
 }
+
+input[type="date"]:before {
+    content: attr(placeholder);
+    color: #aaa;
+}
+
+input[type="date"]:focus:before, input[type="date"]:valid:before {
+    content: "";
+}

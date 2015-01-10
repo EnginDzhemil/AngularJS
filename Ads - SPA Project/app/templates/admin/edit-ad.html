@@ -22,6 +22,10 @@
                 <img src="{{ads.imageDataUrl}}" width="170px;">
             </div>
             <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" id="username" ng-model="adData.ownerUsername"  placeholder="{{ads.ownerUsername}}" />
+            </div>
+            <div class="form-group">
                 <label for="inputCategory">Category</label>
                 <select class="form-control" id="inputCategory" ng-model="adData.categoryId">
                     <option ng-repeat="category in categories" ng-selected="category.id == ads.categoryId"
@@ -37,7 +41,30 @@
                 </select>
             </div>
 
-            <button ng-click="editUserAd(ads.id, adData)" class="btn btn-primary">Edit</button>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" ng-model="adData.status">
+                    <option ng-selected="ads.status == 'Inactive'"
+                            value="0">Inactive</option>
+                    <option ng-selected="ads.status == 'WaitingApproval'"
+                            value="1">WaitingApproval</option>
+                    <option ng-selected="ads.status == 'Published'"
+                            value="2">Published</option>
+                    <option ng-selected="ads.status == 'Rejected'"
+                            value="3">Rejected</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <p class="input-group">
+                    <input type="text" id="date" class="form-control" datepicker-popup="{{format}}" ng-model="adData.date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                </p>
+            </div>
+
+            <button ng-click="editAdminAd(ads.id, adData)" class="btn btn-primary">Edit</button>
             <a href="#/user/ads" class="button"><button class="btn btn-default">Cancel</button></a>
         </form>
     </div>
