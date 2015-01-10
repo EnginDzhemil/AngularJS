@@ -8,6 +8,12 @@ app.controller('AdminHomeController',
         };
         $rootScope.headerMsg = 'Admin Home';
 
+        $scope.$on("myAdsNavigationSelectionChanged", function(event, selectedMyAdsNavigationId) {
+            $scope.adsParams.status = selectedMyAdsNavigationId;
+            $scope.adsParams.startPage = 1;
+            $scope.reloadAds();
+        });
+
         $scope.$on("categorySelectionChanged", function(event, selectedCategoryId) {
             $scope.adsParams.categoryId = selectedCategoryId;
             $scope.adsParams.startPage = 1;
@@ -22,6 +28,7 @@ app.controller('AdminHomeController',
 
         $scope.reloadAds = function() {
             adminService.getAdminAds(
+                $scope.adsParams,
                 function success(data) {
                     $scope.ads = data;
                 },

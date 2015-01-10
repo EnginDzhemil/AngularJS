@@ -63,13 +63,52 @@
             <a href="#/user/profile">
                 <button ng-click="navigationClicked('editUserProfile')"
                         ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile' || location.path() == '/user/edit']">
-                    Edit profile</button>
+                    Edit profile
+                </button>
             </a>
         </li>
     </ul>
 </div>
 
-<div ng-if="location.path() == '/user/ads'" class="panel panel-primary">
+<div ng-if="authService.isAdmin()" class="panel panel-primary">
+    <div class="panel-heading">Navigation</div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="#/user/home">
+                <button ng-click="navigationClicked('adminHome')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'adminHome' || location.path() == '/admin/home']">
+                    Ads
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="#/user/ads">
+                <button ng-click="navigationClicked('myAds')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'myAds' || location.path() == '/user/ads']">
+                    Users
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="#/user/ads/publish">
+                <button ng-click="navigationClicked('publishNewAd')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'publishNewAd' || location.path() == '/user/publish']">
+                    Categories
+                </button>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="#/user/profile">
+                <button ng-click="navigationClicked('editUserProfile')"
+                        ng-class="{true: 'btn btn-sidebar btn-primary', false: 'btn btn-sidebar btn-default'}[selectedNavigationId == 'editUserProfile' || location.path() == '/user/edit']">
+                    Towns
+                </button>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div ng-if="location.path() == '/user/ads' || location.path() == '/admin/home'" class="panel panel-primary">
     <div class="panel-heading">My Ads</div>
     <ul class="list-group">
         <li class="list-group-item">
