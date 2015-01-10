@@ -32,11 +32,6 @@ app.config(function ($routeProvider) {
         controller: 'HomeController'
     });
 
-    $routeProvider.when('/user/home', {
-        templateUrl: 'templates/user/home.html',
-        controller: 'UserHomeController'
-    });
-
     $routeProvider.when('/login', {
         templateUrl: 'templates/login.html',
         controller: 'LoginController'
@@ -47,14 +42,19 @@ app.config(function ($routeProvider) {
         controller: 'RegisterController'
     });
 
-    $routeProvider.when('/user/ads/publish', {
-        templateUrl: 'templates/user/publish-new-ad.html',
-        controller: 'UserPublishNewAdController'
+    $routeProvider.when('/user/home', {
+        templateUrl: 'templates/user/home.html',
+        controller: 'UserHomeController'
     });
 
     $routeProvider.when('/user/ads', {
         templateUrl: 'templates/user/user-ads-home.html',
         controller: 'UserAdsController'
+    });
+
+    $routeProvider.when('/user/ads/publish', {
+        templateUrl: 'templates/user/publish-new-ad.html',
+        controller: 'UserPublishNewAdController'
     });
 
     $routeProvider.when('/user/ads/delete/:id', {
@@ -70,6 +70,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/user/profile', {
         templateUrl: 'templates/user/edit-user.html',
         controller: 'EditUserProfileController'
+    });
+
+    $routeProvider.when('/admin/home', {
+        templateUrl: 'templates/admin/home.html',
+        controller: 'AdminHomeController'
     });
 
     $routeProvider.otherwise(
