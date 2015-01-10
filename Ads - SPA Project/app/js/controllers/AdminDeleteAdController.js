@@ -16,7 +16,7 @@ app.controller('AdminDeleteAdController',
             );
         };
 
-        $scope.deleteAd = function() {
+        $scope.deleteAdminAd = function() {
             adminService.deleteAd(
                 $routeParams.id,
                 function success() {

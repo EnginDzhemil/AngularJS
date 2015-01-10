@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AdminHomeController',
-    function ($scope, adsService, notifyService, pageSize, $rootScope, adminService) {
+    function ($scope, adsService, notifyService, pageSize, $rootScope, adminService, $location) {
         $scope.adsParams = {
             'startPage' : 1,
             'pageSize' : pageSize
@@ -34,6 +34,34 @@ app.controller('AdminHomeController',
                 },
                 function error(err) {
                     notifyService.showError("Ads couldn't load", err);
+                }
+            );
+        };
+
+        $scope.approveAdminAd = function(id) {
+            adminService.approveAd(
+                id,
+                function success() {
+                    notifyService.showInfo("Add approved successfully")
+                    $scope.reloadAds();
+                    $location.path("/admin/home");
+                },
+                function error(err) {
+                    notifyService.showError("Ad couldn't be approved", err);
+                }
+            );
+        };
+
+        $scope.rejectAdminAd = function(id) {
+            adminService.rejectAd(
+                id,
+                function success() {
+                    notifyService.showInfo("Add rejected successfully")
+                    $scope.reloadAds();
+                    $location.path("/admin/home");
+                },
+                function error(err) {
+                    notifyService.showError("Ad couldn't be rejected", err);
                 }
             );
         };

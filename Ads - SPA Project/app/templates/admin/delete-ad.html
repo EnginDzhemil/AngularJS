@@ -12,16 +12,11 @@
                     <li class="list-group-item">
                         <p class="permalink_section">{{ads.text}}</p>
                     </li>
-                    <li class="list-group-item"><span class="label label-primary">Username</span> {{ads.ownerUsername}}</li>
-                    <li class="list-group-item"><span class="label label-primary">Name</span> {{ads.ownerName}}</li>
-                    <li class="list-group-item"><span class="label label-primary">Email</span> {{ads.ownerEmail}}</li>
-                    <li class="list-group-item"><span class="label label-primary">Tel.</span> {{ads.ownerPhone}}</li>
                     <li class="list-group-item"><span class="label label-primary">Category</span> {{ads.categoryName}}</li>
                     <li class="list-group-item"><span class="label label-primary">Town</span> {{ads.townName}}</li>
-                    <li class="list-group-item"><span class="label label-primary">Status</span> {{ads.status}}</li>
                 </ul>
-                <button ng-click="deleteAd(ads.id)" class="btn btn-danger">Delete</button>
-                <a href="#/admin/ads"><button ng-click="" class="btn btn-default">Cancel</button></a>
+                <button ng-click="deleteAdminAd()" class="btn btn-danger">Delete</button>
+                <a href="#/admin/home"><button ng-click="" class="btn btn-default">Cancel</button></a>
             </div>
         </div>
     </div>

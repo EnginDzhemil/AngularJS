@@ -21,8 +21,8 @@
                         <li class="list-group-item"><span class="label label-primary">Town</span> {{ad.townName}}</li>
                         <li class="list-group-item"><span class="label label-primary">Status</span> {{ad.status}}</li>
                     </ul>
-                    <button disabled class="btn btn-primary">Approve</button>
-                    <button disabled class="btn btn-primary">Reject</button>
+                    <button ng-if="ad.status == 'WaitingApproval'" ng-click="approveAdminAd(ad.id)" class="btn btn-primary">Approve</button>
+                    <button ng-if="ad.status == 'WaitingApproval'" ng-click="rejectAdminAd(ad.id)" class="btn btn-primary">Reject</button>
                     <button disabled class="btn btn-primary">Edit</button>
                     <a href="#/admin/ads/delete/{{ad.id}}"><button class="btn btn-danger ">Delete</button></a>
                 </div>

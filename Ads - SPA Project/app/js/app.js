@@ -12,7 +12,9 @@ app.run(function ($rootScope, $location, authService) {
             || $location.path() == "/user/ads/publish"
             || $location.path() == "/user/profile"
             || $location.path().indexOf("/user/ads/edit/") !=-1
-            || $location.path().indexOf("/user/ads/delete/") !=-1){
+            || $location.path().indexOf("/user/ads/delete/") !=-1
+            || $location.path().indexOf("/admin/ads/edit/") !=-1
+            || $location.path().indexOf("/admin/ads/delete/") !=-1){
             $rootScope.showRightSidebar = false;
         }
         else{
@@ -80,6 +82,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/admin/ads/delete/:id', {
         templateUrl: 'templates/admin/delete-ad.html',
         controller: 'AdminDeleteAdController'
+    });
+
+    $routeProvider.when('/admin/ads/edit/:id', {
+        templateUrl: 'templates/admin/edit-ad.html',
+        controller: 'AdminEditAdController'
     });
 
     $routeProvider.otherwise(
