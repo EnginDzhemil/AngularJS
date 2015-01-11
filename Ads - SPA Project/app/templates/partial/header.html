@@ -3,7 +3,7 @@
         <a class="navbar-brand"> Ads - {{headerMsg}}</a>
     </div>
     <div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-if="authService.isLoggedIn()">
             <li><a><span class="glyphicon glyphicon-user"></span> Welcome, {{authService.getCurrentUser().username}}</a></li>
             <li><a href="#/" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
