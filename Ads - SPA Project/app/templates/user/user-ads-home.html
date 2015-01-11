@@ -18,7 +18,7 @@
 
                 </ul>
                 <button disabled class="btn btn-primary">{{ad.status}}</button>
-                <button ng-click="deactivateUserAd(ad.id)" ng-if="ad.status != 'Inactive'" class="btn btn-danger pull-right">Deactivate</button>
+                <button ng-click="deactivateUserAd(ad.id)" ng-if="ad.status != 'Inactive'" class="btn btn-danger">Deactivate</button>
                 <a ng-if="ad.status == 'Inactive'" href="#/user/ads/edit/{{ad.id}}"><button class="btn btn-danger ">Edit</button></a>
                 <button ng-click="publishAgainUserAd(ad.id)" ng-if="ad.status == 'Inactive'" class="btn btn-danger ">Publish again</button>
                 <a ng-if="ad.status == 'Inactive'" href="#/user/ads/delete/{{ad.id}}"><button class="btn btn-danger ">Delete</button></a>
