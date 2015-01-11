@@ -1,8 +1,7 @@
 'use strict';
 
 app.controller('EditUserProfileController',
-    function ($scope, $location, townsService,
-              userService, notifyService, $rootScope) {
+    function ($scope, $location, townsService, userService, notifyService, $rootScope) {
         $scope.towns = townsService.getTowns();
         $scope.userData = {};
 

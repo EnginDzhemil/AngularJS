@@ -8,8 +8,7 @@ app.controller('AdminListTownsController',
         };
         $scope.townParams = {};
         $scope.townEditParams = {};
-        $rootScope.headerMsg = 'Admin List Towns';
-
+        $rootScope.headerMsg = 'Admin - List Towns';
 
         $scope.reloadTowns = function() {
             adminService.getAdminTowns(

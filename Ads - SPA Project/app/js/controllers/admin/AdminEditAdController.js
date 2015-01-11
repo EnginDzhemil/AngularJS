@@ -3,12 +3,12 @@
 app.controller('AdminEditAdController',
     function ($scope, $location, townsService, categoriesService,
               adminService, notifyService, $routeParams, $rootScope) {
-        $scope.adData = {townId: null, categoryId: null, imageDataUrl: "dfgh"};
+        $scope.adData = {townId: null, categoryId: null, imageDataUrl: ""};
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
         $scope.selectedImageChangeState = false;
         $scope.selectedImageDeleteState = false;
-        $rootScope.headerMsg = "Edit ad";
+        $rootScope.headerMsg = "Admin - Edit Ad";
 
         $scope.reloadAd = function() {
             adminService.getAdById(
@@ -68,7 +68,6 @@ app.controller('AdminEditAdController',
 
         };
 
-
         $scope.editAdminAd = function(id, adData) {
             adminService.editAd(id, adData,
                 function success() {
@@ -114,8 +113,6 @@ app.controller('AdminEditAdController',
 
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[0];
-
-
     }
 );
 

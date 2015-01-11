@@ -174,7 +174,7 @@ app.factory('adminService',
                     data: adData
                 };
                 $http(request).success(success).error(error);
-            },
+            }
         }
     }
 );

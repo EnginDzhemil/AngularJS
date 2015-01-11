@@ -6,7 +6,7 @@ app.controller('AdminEditUserController',
         $scope.towns = townsService.getTowns();
         $scope.userData = {};
 
-        $rootScope.headerMsg = 'Edit User Profile'
+        $rootScope.headerMsg = 'Admin - Edit User Profile'
         $scope.reloadUserProfile = function() {
             userService.getUserProfile(
                 function success(data) {

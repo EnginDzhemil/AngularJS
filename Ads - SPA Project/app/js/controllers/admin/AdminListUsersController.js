@@ -9,7 +9,7 @@ app.controller('AdminListUsersController',
         };
         $scope.userEdit = {};
         $scope.passwordData = {};
-        $rootScope.headerMsg = 'Admin List Users';
+        $rootScope.headerMsg = 'Admin - List Users';
 
         $scope.showList = true;
 

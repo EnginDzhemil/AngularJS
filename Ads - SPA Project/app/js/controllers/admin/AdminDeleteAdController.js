@@ -2,7 +2,7 @@
 
 app.controller('AdminDeleteAdController',
     function ($scope, adminService, notifyService, $routeParams, $location, $rootScope) {
-        $rootScope.headerMsg = "Delete ad";
+        $rootScope.headerMsg = "Admin - Delete ad";
 
         $scope.reloadAdminAd = function() {
             adminService.getAdById(

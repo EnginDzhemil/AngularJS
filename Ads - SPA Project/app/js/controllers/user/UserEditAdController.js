@@ -3,12 +3,13 @@
 app.controller('UserEditAdController',
     function ($scope, $location, townsService, categoriesService,
               userService, notifyService, $routeParams, $rootScope) {
-        $scope.adData = {townId: null, categoryId: null, imageDataUrl: "dfgh"};
+        $scope.adData = {townId: null, categoryId: null, imageDataUrl: ""};
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
         $scope.selectedImageChangeState = false;
         $scope.selectedImageDeleteState = false;
         $rootScope.headerMsg = "Edit ad";
+
         $scope.reloadUserAd = function() {
             userService.getUserAdById(
                 $routeParams.id,
@@ -63,7 +64,6 @@ app.controller('UserEditAdController',
             }
 
         };
-
 
         $scope.editUserAd = function(id, adData) {
             userService.editAd(id, adData,

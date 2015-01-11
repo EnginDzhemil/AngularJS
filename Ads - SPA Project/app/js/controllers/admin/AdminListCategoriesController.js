@@ -8,7 +8,7 @@ app.controller('AdminListCategoriesController',
         };
         $scope.categoryParams = {};
         $scope.categoryEditParams = {};
-        $rootScope.headerMsg = 'Admin List Categories';
+        $rootScope.headerMsg = 'Admin - List Categories';
 
 
         $scope.reloadCategories = function() {

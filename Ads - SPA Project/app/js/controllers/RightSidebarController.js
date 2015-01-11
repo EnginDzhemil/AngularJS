@@ -5,10 +5,13 @@ app.controller('RightSidebarController',
     function ($scope, $rootScope, categoriesService, townsService) {
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
+
         $scope.clickedCategory = {};
         $scope.clickedTown = {};
+
         $scope.clickedCategory.id = '';
         $scope.clickedTown.id = '';
+
         $scope.categoryClicked = function() {
             $rootScope.$broadcast("categorySelectionChanged", $scope.clickedCategory.id);
         };

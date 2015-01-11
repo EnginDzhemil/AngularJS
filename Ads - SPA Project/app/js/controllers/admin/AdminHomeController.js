@@ -6,7 +6,7 @@ app.controller('AdminHomeController',
             'startPage' : 1,
             'pageSize' : pageSize
         };
-        $rootScope.headerMsg = 'Admin Home';
+        $rootScope.headerMsg = 'Admin - Home';
 
         $scope.$on("myAdsNavigationSelectionChanged", function(event, selectedMyAdsNavigationId) {
             $scope.adsParams.status = selectedMyAdsNavigationId;
