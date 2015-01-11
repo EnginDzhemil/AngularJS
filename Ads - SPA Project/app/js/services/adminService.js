@@ -23,6 +23,35 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            getAdminCategories: function (params, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/categories',
+                    headers: authService.getAuthHeaders(),
+                    params: params
+                };
+                $http(request).success(success).error(error);
+            },
+
+            deleteCategory: function (id, success, error) {
+                var request = {
+                    method: 'DELETE',
+                    url: baseServiceUrl + '/api/admin/categories/'+id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            addCategory: function (categoryParams, success, error) {
+                var request = {
+                    method: 'POST',
+                    url: baseServiceUrl + '/api/admin/categories',
+                    headers: authService.getAuthHeaders(),
+                    data: categoryParams
+                };
+                $http(request).success(success).error(error);
+            },
+
             editUserProfile: function (username, userData, success, error) {
                 delete userData.username;
                 var request = {

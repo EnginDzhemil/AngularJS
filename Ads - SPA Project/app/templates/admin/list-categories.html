@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    </div>
+    <table class="table">
+        <thead>
+        <tr class="info">
+            <th>ID</th>
+            <th>Category</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="category in categories.categories" ng-class-even="'info'">
+            <th>{{category.id}}</th>
+            <td>{{category.username}}</td>
+            <td><button ng-click="showEditAdminCategory(category)" class="btn btn-primary">Edit</button></td>
+            <td> <button ng-click="deleteAdminCategory(category)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button ng-click="addAdminCategory()" class="btn btn-primary">Add category</button>
+
+<nav class="col-md-12 text-center">
+    <pagination total-items="categories.numItems" ng-model="categoriesParams.startPage"
+                items-per-page="categoriesParams.pageSize" ng-change="reloadCategories()"
+                max-size="9" boundary-links="true">
+    </pagination>
+</nav>
