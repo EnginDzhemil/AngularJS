@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AdminListCategoriesController',
-    function ($scope, adsService, notifyService, pageSize, $rootScope, adminService, $location) {
+    function ($scope, notifyService, pageSize, $rootScope, adminService, $location) {
         $scope.categoriesParams = {
             'startPage' : 1,
             'pageSize' : pageSize

@@ -3,10 +3,11 @@
 app.controller('UserPublishNewAdController',
     function ($scope, $location, townsService, categoriesService,
               userService, notifyService, $rootScope) {
-        $scope.adData = {townId: null, categoryId: null};
+        $scope.adData = {townId: null, categoryId: null, imageDataUrl:''};
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
         $rootScope.headerMsg = 'Publish new ad';
+
         $scope.fileSelected = function(fileInputField) {
             delete $scope.adData.imageDataUrl;
             var file = fileInputField.files[0];

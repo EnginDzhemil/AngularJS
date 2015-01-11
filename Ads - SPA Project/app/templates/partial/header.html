@@ -1,13 +1,11 @@
 <div class="container">
-    <div class="row">
-        <div class="navbar-header">
-            <p ng-if="authService.isAnonymous()" class="navbar-brand">Ads - {{headerMsg}}</p>
-            <p ng-if="authService.isLoggedIn()" class="navbar-brand">Ads - {{headerMsg}}</p>
-        </div>
-        <ul ng-if="authService.isLoggedIn()"  class="nav navbar-nav navbar-right">
-            <p class="navbar-text">Welcome, {{authService.getCurrentUser().username}}</p>
-            <li><a href="#/" ng-click="logout()">Logout</a></li>
+    <div class="navbar-header">
+        <a class="navbar-brand"> Ads - {{headerMsg}}</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a><span class="glyphicon glyphicon-user"></span> Welcome, {{authService.getCurrentUser().username}}</a></li>
+            <li><a href="#/" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
     </div>
 </div>
-

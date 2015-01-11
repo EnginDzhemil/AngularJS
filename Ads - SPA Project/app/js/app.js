@@ -13,6 +13,7 @@ app.run(function ($rootScope, $location, authService) {
             || $location.path() == "/user/profile"
             || $location.path() == "/admin/users/list"
             || $location.path() == "/admin/categories/list"
+            || $location.path() == "/admin/towns/list"
             || $location.path().indexOf("/user/ads/edit/") !=-1
             || $location.path().indexOf("/user/ads/delete/") !=-1
             || $location.path().indexOf("/admin/ads/edit/") !=-1
@@ -99,6 +100,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/admin/categories/list', {
         templateUrl: 'templates/admin/list-categories.html',
         controller: 'AdminListCategoriesController'
+    });
+
+    $routeProvider.when('/admin/towns/list', {
+        templateUrl: 'templates/admin/list-towns.html',
+        controller: 'AdminListTownsController'
     });
 
     $routeProvider.otherwise(

@@ -62,6 +62,45 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            getAdminTowns: function (params, success, error) {
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + '/api/admin/towns',
+                headers: authService.getAuthHeaders(),
+                params: params
+            };
+            $http(request).success(success).error(error);
+            },
+
+            deleteTown: function (id, success, error) {
+                var request = {
+                    method: 'DELETE',
+                    url: baseServiceUrl + '/api/admin/towns/'+id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            addTown: function (townParams, success, error) {
+                var request = {
+                    method: 'POST',
+                    url: baseServiceUrl + '/api/admin/towns',
+                    headers: authService.getAuthHeaders(),
+                    data: townParams
+                };
+                $http(request).success(success).error(error);
+            },
+
+            editTown: function (id, townParams, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/towns/'+id,
+                    headers: authService.getAuthHeaders(),
+                    data: townParams
+                };
+                $http(request).success(success).error(error);
+            },
+
             editUserProfile: function (username, userData, success, error) {
                 delete userData.username;
                 var request = {

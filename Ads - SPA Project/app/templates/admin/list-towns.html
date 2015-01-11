@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    </div>
+    <table class="table">
+        <thead>
+        <tr class="info">
+            <th>ID</th>
+            <th>Town</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="town in towns.towns" ng-class-even="'info'">
+            <th>{{town.id}}</th>
+            <td>{{town.username}}</td>
+            <td><button ng-click="editAdminTown(town)" class="btn btn-primary">Edit</button></td>
+            <td> <button ng-click="deleteAdminTown(town)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button ng-click="addAdminTown()" class="btn btn-primary">Add town</button>
+
+<nav class="col-md-12 text-center">
+    <pagination total-items="towns.numItems" ng-model="townsParams.startPage"
+                items-per-page="townsParams.pageSize" ng-change="reloadTowns()"
+                max-size="9" boundary-links="true">
+    </pagination>
+</nav>
