@@ -7,6 +7,7 @@ app.constant('pageSize', 10);
 
 app.run(function ($rootScope, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
+        $rootScope.clearFilters();
         if($location.path() == "/login" || $location.path() == "/register"
             || $location.path() == "/user/ads"
             || $location.path() == "/user/ads/publish"

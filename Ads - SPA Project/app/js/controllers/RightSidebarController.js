@@ -20,6 +20,14 @@ app.controller('RightSidebarController',
             $rootScope.$broadcast("townSelectionChanged", $scope.clickedTown.id);
         };
 
+        $rootScope.clearFilters = function(){
+            $scope.clickedCategory.id = '';
+            $scope.clickedTown.id = '';
+            $rootScope.$broadcast("categorySelectionChanged", $scope.clickedCategory.id);
+            $rootScope.$broadcast("townSelectionChanged", $scope.clickedTown.id);
+        };
+
+        $rootScope.clearFilters();
     }
 );
 
