@@ -23,9 +23,11 @@
     </div>
 </div>
 
-<nav class="col-md-12 text-center">
+<nav class="col-md-12 text-center" ng-hide="ads.numItems == 0">
     <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
                 items-per-page="adsParams.pageSize" ng-change="reloadAds()"
                 max-size="9" boundary-links="true">
     </pagination>
 </nav>
+
+<h1 class="col-md-12 text-center" ng-show="ads.numItems == 0">No Ads</h1>

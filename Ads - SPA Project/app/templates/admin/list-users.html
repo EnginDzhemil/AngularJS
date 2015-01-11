@@ -27,12 +27,14 @@
     </div>
 
 
-<nav class="col-md-12 text-center" ng-show="showList">
+<nav class="col-md-12 text-center" ng-show="showList && users.numItems != 0" >
     <pagination total-items="users.numItems" ng-model="usersParams.startPage"
                 items-per-page="usersParams.pageSize" ng-change="reloadUsers()"
                 max-size="9" boundary-links="true">
     </pagination>
 </nav>
+
+    <h1 class="col-md-12 text-center" ng-show="users.numItems == 0">No Users</h1>
 
 
     <div class=" col-md-7" ng-hide="showList">

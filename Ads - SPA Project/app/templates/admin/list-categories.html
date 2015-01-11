@@ -23,9 +23,11 @@
 </div>
 <button ng-click="addAdminCategory()" class="btn btn-primary">Add category</button>
 
-<nav class="col-md-12 text-center">
+<nav class="col-md-12 text-center" ng-hide="categories.numItems == 0">
     <pagination total-items="categories.numItems" ng-model="categoriesParams.startPage"
                 items-per-page="categoriesParams.pageSize" ng-change="reloadCategories()"
                 max-size="9" boundary-links="true">
     </pagination>
 </nav>
+
+<h1 class="col-md-12 text-center" ng-show="categories.numItems == 0">No Categories</h1>

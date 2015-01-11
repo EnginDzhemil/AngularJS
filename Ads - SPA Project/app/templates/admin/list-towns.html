@@ -23,9 +23,11 @@
 </div>
 <button ng-click="addAdminTown()" class="btn btn-primary">Add town</button>
 
-<nav class="col-md-12 text-center">
+<nav class="col-md-12 text-center" ng-hide="towns.numItems == 0">
     <pagination total-items="towns.numItems" ng-model="townsParams.startPage"
                 items-per-page="townsParams.pageSize" ng-change="reloadTowns()"
                 max-size="9" boundary-links="true">
     </pagination>
 </nav>
+
+<h1 class="col-md-12 text-center" ng-show="towns.numItems == 0">No Towns</h1>
