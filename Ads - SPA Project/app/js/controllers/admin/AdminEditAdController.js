@@ -37,7 +37,7 @@ app.controller('AdminEditAdController',
                 var reader = new FileReader();
                 reader.onload = function() {
                     $scope.imageUrl = reader.result;
-                    $(".image-box").html("<img src='" + reader.result + "' width='170px;'>");
+                    $(".image-box").html("<img class='ad-img' src='" + reader.result + "'>");
                 };
                 reader.readAsDataURL(file);
             } else {
