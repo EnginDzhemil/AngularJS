@@ -52,6 +52,16 @@ app.factory('adminService',
                 $http(request).success(success).error(error);
             },
 
+            editCategory: function (id, categoryParams, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/categories/'+id,
+                    headers: authService.getAuthHeaders(),
+                    data: categoryParams
+                };
+                $http(request).success(success).error(error);
+            },
+
             editUserProfile: function (username, userData, success, error) {
                 delete userData.username;
                 var request = {

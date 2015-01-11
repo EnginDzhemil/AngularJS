@@ -14,7 +14,7 @@
         <tr ng-repeat="category in categories.categories" ng-class-even="'info'">
             <th>{{category.id}}</th>
             <td>{{category.username}}</td>
-            <td><button ng-click="showEditAdminCategory(category)" class="btn btn-primary">Edit</button></td>
+            <td><button ng-click="editAdminCategory(category)" class="btn btn-primary">Edit</button></td>
             <td> <button ng-click="deleteAdminCategory(category)" class="btn btn-danger">Delete</button>
             </td>
         </tr>
