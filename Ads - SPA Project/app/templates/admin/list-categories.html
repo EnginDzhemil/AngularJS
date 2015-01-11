@@ -23,7 +23,7 @@
 </div>
 <button ng-click="addAdminCategory()" class="btn btn-primary">Add category</button>
 
-<nav class="col-md-12 text-center" ng-hide="categories.numItems == 0">
+<nav class="col-md-12 text-center" ng-hide="categories.numItems == 0  || categories == null">
     <pagination total-items="categories.numItems" ng-model="categoriesParams.startPage"
                 items-per-page="categoriesParams.pageSize" ng-change="reloadCategories()"
                 max-size="9" boundary-links="true">
