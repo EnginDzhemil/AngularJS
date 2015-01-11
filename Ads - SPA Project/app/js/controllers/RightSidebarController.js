@@ -5,14 +5,16 @@ app.controller('RightSidebarController',
     function ($scope, $rootScope, categoriesService, townsService) {
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
-        $scope.categoryClicked = function(clickedCategoryId) {
-            $scope.selectedCategoryId = clickedCategoryId;
-            $rootScope.$broadcast("categorySelectionChanged", clickedCategoryId);
+        $scope.clickedCategory = {};
+        $scope.clickedTown = {};
+        $scope.clickedCategory.id = '';
+        $scope.clickedTown.id = '';
+        $scope.categoryClicked = function() {
+            $rootScope.$broadcast("categorySelectionChanged", $scope.clickedCategory.id);
         };
 
-        $scope.townClicked = function(clickedTownId) {
-            $scope.selectedTownId = clickedTownId;
-            $rootScope.$broadcast("townSelectionChanged", clickedTownId);
+        $scope.townClicked = function() {
+            $rootScope.$broadcast("townSelectionChanged", $scope.clickedTown.id);
         };
 
     }

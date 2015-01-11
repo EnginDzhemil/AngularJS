@@ -27,6 +27,10 @@ app.run(function ($rootScope, $location, authService) {
             // Authorization check: anonymous site visitors cannot access user routes
             $location.path("/");
         }
+        if ($location.path().indexOf("/admin/") != -1 && !authService.isLoggedIn()) {
+            // Authorization check: anonymous site visitors cannot access user routes
+            $location.path("/");
+        }
     });
 });
 
